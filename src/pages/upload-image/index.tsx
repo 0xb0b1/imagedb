@@ -65,7 +65,9 @@ export default function UploadImage() {
     trigger,
   } = useForm({ resolver: zodResolver(imageUpLoadFormSchema) })
 
-  const onSubmit = async (data: ImageUploadFormSchema) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (
+    data: Record<string, any>,
+  ) => {
     try {
       if (!imageUrl) throw new Error('No Image')
 

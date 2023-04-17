@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 
-const TextInputBase = ({ name, error = null, ...rest }, ref) => {
+const TextInputBase = ({ name, error = null, ...rest }: any, ref: any) => {
   return (
     <div className='relative flex flex-col w-full'>
       <input

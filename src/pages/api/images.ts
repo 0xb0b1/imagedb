@@ -3,7 +3,7 @@ import faunadb from 'faunadb'
 
 const { query } = faunadb
 const client = new faunadb.Client({
-  secret: process.env.FAUNA_API_KEY,
+  secret: process.env.FAUNA_API_KEY as string,
 })
 
 interface ImagesQueryResponse {
@@ -68,8 +68,8 @@ export default async function handler(
           query.Lambda('X', query.Get(query.Var('X'))),
         ),
       )
-      .then((response) => {
-        const formattedData = response.data.map((item) => ({
+      .then((response: any) => {
+        const formattedData = response.data.map((item: any) => ({
           ...item.data,
           ts: item.ts,
           id: item.ref.id,

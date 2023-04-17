@@ -12,7 +12,9 @@ import React, {
 import axios, { AxiosRequestConfig, CancelTokenSource } from 'axios'
 import {
   FieldError,
+  FieldErrorsImpl,
   FieldValues,
+  Merge,
   UseFormSetError,
   UseFormTrigger,
 } from 'react-hook-form'
@@ -23,7 +25,7 @@ import * as Progress from '@radix-ui/react-progress'
 
 interface FileInputProps {
   name: string
-  error?: FieldError
+  error?: Merge<FieldError, FieldErrorsImpl<any>> | any
   setImageUrl: Dispatch<SetStateAction<string>>
   localImageUrl: string
   setLocalImageUrl: Dispatch<SetStateAction<string>>
@@ -63,7 +65,7 @@ const FileInputBase: ForwardRefRenderFunction<
 
       setImageUrl('')
       setLocalImageUrl('')
-      setError('image', null)
+      setError('image', {})
       setIsSending(true)
 
       await onChange(event)
@@ -110,7 +112,7 @@ const FileInputBase: ForwardRefRenderFunction<
   useEffect(() => {
     if (error?.message && isSending && cancelToken?.cancel) {
       cancelToken.cancel('Cancelled image upload.')
-      setCancelToken(null)
+      // setCancelToken({})
     }
   }, [cancelToken, error, isSending])
 
@@ -170,7 +172,7 @@ const FileInputBase: ForwardRefRenderFunction<
           draggable='true'
           {...rest}
         />
-        {!!error ? <span className='absolute'>{error.message}</span> : null}
+        {!!error ? <span className='absolute'>{error?.message}</span> : null}
       </label>
     </div>
   )
