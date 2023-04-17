@@ -30,7 +30,6 @@ export const ImageCard = ({ data }: ImageProps) => {
             className='object-cover w-full h-48 rounded-md cursor-pointer p-1'
             src={data.url}
             alt={data.title}
-            loading='lazy'
             onLoad={() => setIsLoading(false)}
           />
         </Dialog.Trigger>
