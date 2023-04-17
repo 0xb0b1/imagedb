@@ -7,7 +7,7 @@ export const ViewImage = ({ imageUrl }: { imageUrl: string }) => {
   return (
     <Dialog.Portal>
       <Dialog.Overlay className='bg-black fixed inset-0 opacity-70' />
-      <Dialog.Content className='fixed top-[50%] left-[50%] max-h-[85vh] w-fit translate-x-[-50%] translate-y-[-50%] rounded-md focus:outline-none'>
+      <Dialog.Content className='fixed top-[50%] left-[50%] w-fit translate-x-[-50%] translate-y-[-50%] rounded-md focus:outline-none'>
         <Dialog.Close className='absolute right'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -33,8 +33,6 @@ export const ViewImage = ({ imageUrl }: { imageUrl: string }) => {
             Ver original
           </Link>
         </footer>
-
-        <Dialog.Close />
       </Dialog.Content>
     </Dialog.Portal>
   )
