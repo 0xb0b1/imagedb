@@ -1,38 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## 📚 Sobre o projeto
 
-First, run the development server:
+* Upload e listagem de imagens.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+&nbsp;
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 💻 Funcionalidades implementadas:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- [x] Fazer fetch de imagens do faunadb e mostrar em tela.
+- [x] Fazer upload da imagem para o IMGBB.
+- [x] Criar collection no faunadb com url da imagem cadastrada no IMGBB.
+- [x] Validar formulario de upload.
+- [x] Criar uma API ROUTE com Nextjs para buscar e criar collection de imagens no faunadb.
+- [x] Quickview clicando na imagem listada.
+- [x] **...**:
+- [x] **...**:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 🛠️ Tecnologias/Ferramentas ultilizadas
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+* [NextJS](https://nextjs.org/)
+* [Typescript](https://www.typescriptlang.org/)
+* [TailwindCSS](https://tailwindcss.com/)
+* [Phosphor Icons](https://phosphoricons.com/)
+* [FaunaDB](https://fauna.com/): Usado para criar collection de imagem com titulo, descrição e url da imagem do IMGBB.
+* [Zod](https://zod.dev/): Schema Validation com typescript
+* [ReactQuery](https://tanstack.com/query/latest)
+* [Catppuccin Theme](https://catppuccin.com/): Catppuccin for TailwindCSS 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+&nbsp;
 
-To learn more about Next.js, take a look at the following resources:
+### 🔗 Link para o projeto online
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+[https://imagedb-gray.vercel.app/](https://imagedb-gray.vercel.app/)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+&nbsp;
