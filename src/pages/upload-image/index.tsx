@@ -14,6 +14,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { ToastSuccess } from '@/components/toast'
 import { validateImageType } from '@/utils/validateImageType'
+import Head from 'next/head'
 
 type dataImageInput = {
   title: string
@@ -94,58 +95,64 @@ export default function UploadImage() {
   }, [])
 
   return (
-    <div className='max-w-[1080px] m-auto px-4'>
-      <header className='py-6'>
-        <Link className='flex items-center w-32 gap-2 text-xl' href='/'>
-          <ArrowBendUpLeft size={22} />
-          <span>Voltar</span>
-        </Link>
-      </header>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className='bg-base flex flex-col gap-4 w-full'>
-          <FileInput
-            setImageUrl={setImageUrl}
-            setLocalImageUrl={setLocalImageUrl}
-            localImageUrl={localImageUrl}
-            setError={setError}
-            trigger={trigger}
-            error={errors.image}
-            {...register('image')}
-          />
+    <>
+      <Head>
+        <title>Image DB | Upload form</title>
+      </Head>
 
-          <TextInput
-            placeholder='Titulo da imagem'
-            error={errors.title}
-            {...register('title')}
-          />
+      <div className='max-w-[1080px] m-auto px-4'>
+        <header className='py-6'>
+          <Link className='flex items-center w-32 gap-2 text-xl' href='/'>
+            <ArrowBendUpLeft size={22} />
+            <span>Voltar</span>
+          </Link>
+        </header>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className='bg-base flex flex-col gap-4 w-full'>
+            <FileInput
+              setImageUrl={setImageUrl}
+              setLocalImageUrl={setLocalImageUrl}
+              localImageUrl={localImageUrl}
+              setError={setError}
+              trigger={trigger}
+              error={errors.image}
+              {...register('image')}
+            />
 
-          <TextInput
-            placeholder='Descrição da imagem'
-            error={errors.description}
-            {...register('description')}
-          />
+            <TextInput
+              placeholder='Titulo da imagem'
+              error={errors.title}
+              {...register('title')}
+            />
 
-          <Toast.Provider swipeDirection='right'>
-            <button
-              className='bg-red text-base font-semibold text-lg rounded-lg w-full py-4 px-6 disabled:cursor-not-allowed disabled:opacity-50'
-              type='submit'
-              onClick={() => {
-                if (!isValid) return
-                setOpenToast(false)
-                window.clearTimeout(timerRef.current)
-                timerRef.current = window.setTimeout(() => {
-                  setOpenToast(true)
-                }, 100)
-              }}
-            >
-              Enviar
-            </button>
+            <TextInput
+              placeholder='Descrição da imagem'
+              error={errors.description}
+              {...register('description')}
+            />
 
-            <ToastSuccess open={openToast} setOpenToast={setOpenToast} />
-            <Toast.Viewport className='[--viewport-padding:_25px] fixed bottom-0 right-0 flex flex-col p-[var(--viewport-padding)] gap-[10px] w-[390px] max-w-[100vw] m-0 list-none z-[2147483647] outline-none' />
-          </Toast.Provider>
-        </div>
-      </form>
-    </div>
+            <Toast.Provider swipeDirection='right'>
+              <button
+                className='bg-red text-base font-semibold text-lg rounded-lg w-full py-4 px-6 disabled:cursor-not-allowed disabled:opacity-50'
+                type='submit'
+                onClick={() => {
+                  if (!isValid) return
+                  setOpenToast(false)
+                  window.clearTimeout(timerRef.current)
+                  timerRef.current = window.setTimeout(() => {
+                    setOpenToast(true)
+                  }, 100)
+                }}
+              >
+                Enviar
+              </button>
+
+              <ToastSuccess open={openToast} setOpenToast={setOpenToast} />
+              <Toast.Viewport className='[--viewport-padding:_25px] fixed bottom-0 right-0 flex flex-col p-[var(--viewport-padding)] gap-[10px] w-[390px] max-w-[100vw] m-0 list-none z-[2147483647] outline-none' />
+            </Toast.Provider>
+          </div>
+        </form>
+      </div>
+    </>
   )
 }
