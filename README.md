@@ -25,7 +25,7 @@
 * [FaunaDB](https://fauna.com/): Usado para criar collection de imagem com titulo, descrição e url da imagem do IMGBB.
 * [Zod](https://zod.dev/): Schema Validation com typescript
 * [ReactQuery](https://tanstack.com/query/latest)
-* [Catppuccin Theme](https://catppuccin.com/): Catppuccin for TailwindCSS 
+* [Catppuccin Theme](https://github.com/catppuccin/tailwindcss): Catppuccin for TailwindCSS 
 
 
 &nbsp;
